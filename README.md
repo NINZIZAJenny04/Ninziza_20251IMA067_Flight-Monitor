@@ -27,14 +27,19 @@ The main objectives of this project are:
 5. To generate reports about flight operations.
 6. To develop PL/SQL programs that automate flight monitoring.
 
-5. Data Source
+5. 5. Data Source
 
-The project will use publicly available airline flight performance data from the U.S. Bureau of Transportation Statistics.
+This project will use publicly available flight information from RwandAir, Rwanda's national airline.
 
-Dataset link:
-https://www.transtats.bts.gov/ONTIME/
+The data will be collected from RwandAir's official flight status website.
 
-Note: The dataset contains United States airline information and will be used as sample operational data. It is not actual RwandAir operational data.
+Data Source: RwandAir Official Website
+
+Link: https://www.rwandair.com/rw-en/daily-flight-status/
+
+The collected data will include flight numbers, departure and arrival airports, scheduled flight times, and flight statuses. Additional delay information will be included where available.
+
+The collected data will be organized and stored in an Oracle database for analysis and flight delay monitoring..
 
 6. Planned Innovation
 

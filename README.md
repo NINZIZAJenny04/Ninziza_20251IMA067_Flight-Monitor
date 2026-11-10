@@ -27,25 +27,38 @@ The main objectives of this project are:
 5. To generate reports about flight operations.
 6. To develop PL/SQL programs that automate flight monitoring.
 
-5. 5. Data Source
+5. Data Source
 
-This project will use publicly available flight information from RwandAir, Rwanda's national airline.
+The project will use publicly available flight information
+from the following sources:
 
-The data will be collected from RwandAir's official flight status website.
+1. RwandAir Daily Flight Status:
+   https://www.rwandair.com/rw-en/daily-flight-status
 
-Data Source: RwandAir Official Website
+2. Airportia:
+   https://www.airportia.com/airlines/rwandair/departures/
 
-Link: https://www.rwandair.com/rw-en/daily-flight-status/
+These sources provide flight numbers, routes, scheduled
+times, actual times, and flight statuses.
 
-The collected data will include flight numbers, departure and arrival airports, scheduled flight times, and flight statuses. Additional delay information will be included where available.
+The collected records will be used as sample data for
+the RwandAir case study. They do not represent the
+airline's complete internal operational database.
 
-The collected data will be organized and stored in an Oracle database for analysis and flight delay monitoring..
+Additional supplementary airline performance data may
+be obtained from the U.S. Bureau of Transportation
+Statistics:
+https://www.transtats.bts.gov/ONTIME/
 
+The supplementary dataset will be used only if suitable
+data and permitted educational use are confirmed.
 6. Planned Innovation
 
-Automatic Flight Delay Alert and Monitoring Dashboard
+Innovation: Automatic Flight Delay Alert and Monitoring Dashboard
 
-The system will identify delayed flights, calculate delay durations, and display flight statuses. It will also provide statistics about delayed, cancelled, and on-time flights.
+Tool: Microsoft Power BI
+
+The system will identify delayed, cancelled, and on-time flights, calculate delay durations, and display flight performance statistics through an interactive dashboard. Microsoft Power BI will be used to visualize flight information, monitor delays, and generate useful reports to support flight operations monitoring.
 
 7. Planned Database Tables
 

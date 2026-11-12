@@ -52,6 +52,13 @@ Update| Modify airline details, airport information, routes, flight schedules, f
 Delete| Remove incorrect or unnecessary airline, airport, route, flight, and delay records when permitted.
 
 These CRUD operations help maintain accurate flight information and support effective monitoring of airline operations.
+Actors and Their Responsibilities
+
+Actor| Responsibilities
+Passenger| Receives flight delay notifications, reviews available options, and submits a preferred choice (rebooking, refund, or voucher).
+Airline Staff| Receives and verifies passenger requests, checks airline policies, and forwards exceptional requests to the manager.
+Manager| Reviews exceptional passenger requests and approves or rejects them.
+Aviation System| Monitors flight statuses, records delays, calculates delay durations, sends notifications, processes passenger requests, and updates flight records.
 
 6. Data Source
 

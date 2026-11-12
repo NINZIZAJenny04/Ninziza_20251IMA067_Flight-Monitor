@@ -26,8 +26,23 @@ The main objectives of this project are:
 4. To record flight delay durations and reasons.
 5. To generate reports about flight operations.
 6. To develop PL/SQL programs that automate flight monitoring.
+   
+    5. Business Process
 
-5. Data Source
+The business process involves four main actors:
+
+1. Passenger
+2. Airline Staff
+3. Manager
+4. Aviation System
+
+The process begins when a passenger receives a flight delay notification. The passenger reviews the available options and submits a preferred choice. Airline staff verify the request and forward exceptional requests to the manager for approval or rejection. The Aviation System monitors flight status, records delays, processes passenger requests and updates flight records.
+
+### Business Process Diagram
+
+![Airline Flight Schedule and Delay Monitoring System BPMN Diagram](docs/business_process_diagram.png)
+
+6. Data Source
 
 The project will use publicly available flight information
 from the following sources:
@@ -52,7 +67,7 @@ https://www.transtats.bts.gov/ONTIME/
 
 The supplementary dataset will be used only if suitable
 data and permitted educational use are confirmed.
-6. Planned Innovation
+7. Planned Innovation
 
 Innovation: Automatic Flight Delay Alert and Monitoring Dashboard
 
@@ -60,7 +75,7 @@ Tool: Microsoft Power BI
 
 The system will identify delayed, cancelled, and on-time flights, calculate delay durations, and display flight performance statistics through an interactive dashboard. Microsoft Power BI will be used to visualize flight information, monitor delays, and generate useful reports to support flight operations monitoring.
 
-7. Planned Database Tables
+8. Planned Database Tables
 
 The project will initially include the following tables:
 
@@ -70,8 +85,8 @@ The project will initially include the following tables:
 4. FLIGHTS – Stores flight schedules and statuses.
 5. FLIGHT_DELAYS – Stores flight delay details and reasons.
 
-8. Planned PL/SQL Features
-
+9. Planned PL/SQL Features
+   
 The project will use the following Oracle PL/SQL features:
 
 - Procedures – To manage flight information.
@@ -81,11 +96,11 @@ The project will use the following Oracle PL/SQL features:
 - Triggers – To automatically update flight statuses and record delays.
 - Exception Handling – To handle database errors.
 
-9. Expected Results
-
+10. Expected Results
+    
 The expected result is a functional Oracle database system that organizes airline flight information, monitors flight delays, and generates useful flight reports. The system will also demonstrate how PL/SQL can automate important database operations.
 
-10. Project References
+11. Project References
 
 - U.S. Bureau of Transportation Statistics: https://www.transtats.bts.gov/ONTIME/
 - Oracle Database Documentation: https://docs.oracle.com/en/database/oracle/oracle-database/21/

@@ -38,9 +38,10 @@ The business process involves four main actors:
 
 The process begins when a passenger receives a flight delay notification. The passenger reviews the available options and submits a preferred choice. Airline staff verify the request and forward exceptional requests to the manager for approval or rejection. The Aviation System monitors flight status, records delays, processes passenger requests and updates flight records.
 
-### Business Process Diagram
 
-![Airline Flight Schedule and Delay Monitoring System BPMN Diagram](docs/business_process_diagram.png)
+![Airline Flight Schedule and Delay Monitoring System BPMN Diagram](docs/business_process/business_process_diagram.svg)
+
+[Business Process Explanation (PDF)](docs/business_process/business_process_explanation.pdf)
 CRUD Activities
 
 The Airline Flight Schedule and Delay Monitoring System performs the following CRUD operations:

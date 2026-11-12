@@ -27,7 +27,7 @@ The main objectives of this project are:
 5. To generate reports about flight operations.
 6. To develop PL/SQL programs that automate flight monitoring.
    
-    5. Business Process
+5. Business Process
 
 The business process involves four main actors:
 
@@ -67,6 +67,7 @@ https://www.transtats.bts.gov/ONTIME/
 
 The supplementary dataset will be used only if suitable
 data and permitted educational use are confirmed.
+
 7. Planned Innovation
 
 Innovation: Automatic Flight Delay Alert and Monitoring Dashboard

@@ -26,8 +26,8 @@ The main objectives of this project are:
 4. To record flight delay durations and reasons.
 5. To generate reports about flight operations.
 6. To develop PL/SQL programs that automate flight monitoring.
-   
-5. Business Process
+
+ 5. Business process
 
 The business process involves four main actors:
 
@@ -41,7 +41,17 @@ The process begins when a passenger receives a flight delay notification. The pa
 ### Business Process Diagram
 
 ![Airline Flight Schedule and Delay Monitoring System BPMN Diagram](docs/business_process_diagram.png)
+CRUD Activities
 
+The Airline Flight Schedule and Delay Monitoring System performs the following CRUD operations:
+
+CRUD Operation| Activities in the System
+Create| Add new airline information, airport details, routes, flight schedules, and flight delay records.
+Retrieve| View airline information, airport details, flight schedules, flight statuses, and delay records.
+Update| Modify airline details, airport information, routes, flight schedules, flight statuses, and delay information.
+Delete| Remove incorrect or unnecessary airline, airport, route, flight, and delay records when permitted.
+
+These CRUD operations help maintain accurate flight information and support effective monitoring of airline operations.
 6. Data Source
 
 The project will use publicly available flight information

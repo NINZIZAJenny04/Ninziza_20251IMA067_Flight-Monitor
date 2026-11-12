@@ -27,7 +27,7 @@ The main objectives of this project are:
 5. To generate reports about flight operations.
 6. To develop PL/SQL programs that automate flight monitoring.
 
- 5. Business process
+5. Business process
 
 The business process involves four main actors:
 
@@ -52,6 +52,7 @@ Update| Modify airline details, airport information, routes, flight schedules, f
 Delete| Remove incorrect or unnecessary airline, airport, route, flight, and delay records when permitted.
 
 These CRUD operations help maintain accurate flight information and support effective monitoring of airline operations.
+
 6. Data Source
 
 The project will use publicly available flight information

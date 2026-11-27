@@ -102,13 +102,12 @@ Stores flight schedule information.
 
 Stores actual departure time, flight status and delay information.
 
-| Performance ID | Schedule ID | Actual Departure | Status | Delay Minutes |
-|---:|---:|---|---|---:|
-| 1 | 1 | 8:40 PM | Landed | 10 |
-| 2 | 2 | 4:14 AM | Delayed | 204 |
-| 3 | 3 | 3:25 PM | Landed | 0 |
-| 4 | 4 | 7:45 AM | En-Route | 0 |
-| 5 | 5 | 11:01 PM | Delayed | 86 |
+ Performance ID  Schedule ID  Actual Departure  Status  Delay Minutes 
+  1         8:40 PM             Landed                10 
+  2         4:14 AM             Delayed               204 
+  3         3:25 PM             Landed                0 
+  4         7:45 AM             En-Route              0 
+  5         11:01 PM            Delayed               86
 
 The IDs in these sample tables illustrate the proposed relationships; the actual database uses generated identifiers.
 
@@ -124,21 +123,19 @@ The logical design separates the information into five related tables:
 
 Stores airline information.
 
-| Airline ID | Airline Name |
-|---:|---|
-| 1 | RwandAir |
+ Airline ID  Airline Name 
+ 1  RwandAir 
 
 ### 2. AIRPORT
 
 Stores airport information, including airport names and codes.
 
-| Airport ID | Airport Name | Airport Code |
-|---:|---|---|
-| 1 | Kigali International Airport | KGL |
-| 2 | Brussels Airport | BRU |
-| 3 | Dar-es-Salaam Airport | DAR |
-| 4 | Dubai International Airport | DXB |
-| 5 | Zanzibar Airport | ZNZ |
+ Airport ID  Airport Name                   Airport Code 
+ 1           Kigali International Airport   KGL 
+ 2           Brussels Airport               BRU 
+ 3           Dar-es-Salaam Airport          DAR 
+ 4           Dubai International Airport    DXB 
+ 5           Zanzibar Airport               ZNZ 
 
 ### 3. FLIGHT
 
@@ -151,8 +148,7 @@ Stores flight dates and scheduled departure times.
 ### 5. FLIGHT_PERFORMANCE
 
 Stores actual departure times, flight statuses and delay minutes.
-
-**Dependency removed:** Airline details and airport details are separated into their own tables instead of being repeatedly stored with flight information. This removes transitive dependencies and reduces unnecessary duplication.
+**Dependency removed:** Airline names and airport details are stored in their own tables. The FLIGHT table uses foreign keys to reference the airline and the origin and destination airports. This separates descriptive information from flight records, reduces duplication and removes transitive dependencies from the proposed logical design.
 
 ## 6. Logical Relationships
 
@@ -167,18 +163,16 @@ Primary keys identify records, while foreign keys connect related tables.
 
 ## 7. Field Mapping
 
-| Original Field | Target Table | Target Column |
-|---|---|---|
-| FLIGHT_DATE | FLIGHT_SCHEDULE | FLIGHT_DATE |
-| FLIGHT | FLIGHT | FLIGHT_NUMBER |
-| ORIGIN | AIRPORT / FLIGHT | ORIGIN AIRPORT reference |
-| DESTINATION | AIRPORT / FLIGHT | DESTINATION AIRPORT reference |
-| AIRLINE | AIRLINE | AIRLINE_NAME |
-| SCHEDULED | FLIGHT_SCHEDULE | SCHEDULED_DEPARTURE_TIME |
-| ACTUAL_DEPARTURE | FLIGHT_PERFORMANCE | ACTUAL_DEPARTURE_TIME |
-| FLIGHT_STATUS | FLIGHT_PERFORMANCE | FLIGHT_STATUS |
-| DELAYED_MINUTES | FLIGHT_PERFORMANCE | DELAY_MINUTES |
-
+Original Field	  Target Table	          Target Column
+FLIGHT_DATE   	  FLIGHT_SCHEDULE	        FLIGHT_DATE
+FLIGHT	          FLIGHT	                FLIGHT_NUMBER
+ORIGIN	          AIRPORT	                AIRPORT_ID (origin reference in FLIGHT)
+DESTINATION	      AIRPORT	                AIRPORT_ID (destination reference in FLIGHT)
+AIRLINE	          AIRLINE	                AIRLINE_NAME
+SCHEDULED	        FLIGHT_SCHEDULE	        SCHEDULED_DEPARTURE_TIME
+ACTUAL_DEPARTURE	FLIGHT_PERFORMANCE	    ACTUAL_DEPARTURE_TIME
+FLIGHT_STATUS	    FLIGHT_PERFORMANCE	    FLIGHT_STATUS
+DELAYED_MINUTES	  FLIGHT_PERFORMANCE	    DELAY_MINUTES
 ### Required data type conversions
 
 - FLIGHT_DATE: Text or Excel date to DATE.

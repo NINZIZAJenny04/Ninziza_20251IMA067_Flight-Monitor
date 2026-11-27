@@ -33,13 +33,36 @@ It contains the following fields:
 
 ### Sample records from the original dataset
 
-| Date | Flight | Destination | Scheduled | Actual Departure | Status | Delay |
-|---|---|---|---|---|---|---:|
-| 2026-11-12 | WB822 | Brussels BRU | 8:30 PM | 8:40 PM | Landed | 10 |
-| 2026-11-13 | WB360 | Dar-es-Salaam DAR | 12:50 AM | 4:14 AM | Delayed | 204 |
-| 2026-11-14 | WB982 | Dubai DXB | 3:25 PM | 3:25 PM | Landed | 0 |
-| 2026-11-15 | WB841 | Zanzibar ZNZ | 7:45 AM | 7:45 AM | En-Route | 0 |
-| 2026-11-16 | WB438 | Zanzibar ZNZ | 9:35 PM | 11:01 PM | Delayed | 86 |
+Thank you. I've checked your entire document against the Phase II requirements.
+
+Good news: **most of the required sections are already there.** We don't need to start again. However, a few things need correction before we can consider it complete.
+
+### **What needs correction**
+
+1. **UNF:** The sample table is missing two original fields: `ORIGIN` and `AIRLINE`.
+2. **1NF:** We should clarify how each original flight departure record is uniquely identified.
+3. **2NF:** We need to explain the partial dependency more clearly.
+4. **3NF:** We need to make the airport and airline relationships more precise.
+5. **Field mapping:** Some target columns are not specified clearly enough.
+6. **Data type conversions:** We need to explain how the time values are converted for Oracle.
+
+Let's correct these one at a time.
+
+### **Step 1: Correct the UNF sample table**
+
+In your document, under **2. Unnormalized Form (UNF)**, replace the existing sample table with this one:
+
+| Date       | Flight | Origin     | Destination       | Airline  | Scheduled | Actual Departure | Status   | Delay |
+| ---------- | ------ | ---------- | ----------------- | -------- | --------- | ---------------- | -------- | ----- |
+| 2026-11-12 | WB822  | Kigali KGL | Brussels BRU      | RwandAir | 8:30 PM   | 8:40 PM          | Landed   | 10    |
+| 2026-11-13 | WB360  | Kigali KGL | Dar-es-Salaam DAR | RwandAir | 12:50 AM  | 4:14 AM          | Delayed  | 204   |
+| 2026-11-14 | WB982  | Kigali KGL | Dubai DXB         | RwandAir | 3:25 PM   | 3:25 PM          | Landed   | 0     |
+| 2026-11-15 | WB841  | Kigali KGL | Zanzibar ZNZ      | RwandAir | 7:45 AM   | 7:45 AM          | En-Route | 0     |
+| 2026-11-16 | WB438  | Kigali KGL | Zanzibar ZNZ      | RwandAir | 9:35 PM   | 11:01 PM         | Delayed  | 86    |
+
+This now shows all **9 original dataset fields**.
+
+Make this replacement and tell me **Done**. Then we'll move to the next correction.
 
 All five records have Kigali International Airport (KGL) as their origin and RwandAir as their airline.
 
@@ -47,24 +70,9 @@ The original dataset is already arranged in rows and columns. It does not contai
 
 ## 3. First Normal Form (1NF)
 
-First Normal Form requires each column to contain a single value and each record to represent one individual flight departure.
-
-In this project:
-
-- Each row represents one flight departure record.
-- Each column contains an individual value.
-- There are no repeating groups within a record.
-- The flight departure records can be uniquely identified.
-
-The five sample records shown in the UNF section satisfy these conditions.
-
-**Dependency removed:** No repeating group was identified in the original flat dataset, so no structural split was required at this stage.
-
+Each flight departure record can be identified using the combination of FLIGHT_DATE, FLIGHT and SCHEDULED. This combination was checked for duplicate records in the dataset, and no duplicates were found.
 ## 4. Second Normal Form (2NF)
 
-Second Normal Form requires a table to be in 1NF and every non-key attribute to depend on the whole primary key.
-
-The flight information is organized into separate entities:
 
 ### FLIGHT
 
@@ -104,7 +112,7 @@ Stores actual departure time, flight status and delay information.
 
 The IDs in these sample tables illustrate the proposed relationships; the actual database uses generated identifiers.
 
-**Dependency removed:** Flight details are separated from schedule and performance details so that information about a flight does not need to be repeated in every schedule and performance record.
+**Dependency removed:** In the original dataset, flight details such as ORIGIN, DESTINATION and AIRLINE depend on the FLIGHT number rather than the complete flight departure key. These details are separated into the FLIGHT table to remove partial dependency and reduce repetition.
 
 ## 5. Third Normal Form (3NF)
 
